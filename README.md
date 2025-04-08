@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/e25ea532-e1c4-42e2-8665-722a5feb16b7)# plantinhas
+# plantinhas
 Agrupador plantinhas
 
 # Diagrama ER
