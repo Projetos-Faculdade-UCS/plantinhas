@@ -9,7 +9,7 @@ erDiagram
     string last_name
     string username
     string email
-    string contato
+    string contact
     date birthday
     string photo
   }
@@ -44,7 +44,6 @@ erDiagram
   Problema {
     string nome
     string descricao
-    string origem
     string tratamento
   }
 
@@ -60,7 +59,7 @@ erDiagram
     string tipo
     string frequencia
     int quantidade_total
-    int quantidade_completadas
+    int quantidade_completada
     string cron
   }
 
@@ -72,7 +71,7 @@ erDiagram
 
   Habilidade {
     string tipo
-    string api_hint
+    int xp
     int nivel
   }
 
