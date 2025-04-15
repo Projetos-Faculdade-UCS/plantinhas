@@ -27,11 +27,6 @@ erDiagram
     int dificuldade
   }
 
-  PlantaPlantio {
-    float saude
-    float sede
-  }
-
   Plantio {
     date data_plantio
     date data_prevista_colheita
@@ -39,6 +34,8 @@ erDiagram
     string espaco_disponivel
     string status
     float nota_experiencia
+    float saude
+    float sede
   }
 
   Problema {
@@ -75,9 +72,6 @@ erDiagram
     int nivel
   }
 
-  Requisitos {
-  }
-
   PostFeed {
     string legenda
     list photos
@@ -109,34 +103,37 @@ erDiagram
   }
 
   %% Relationships
-  User ||--o{ PostFeed : creates
-  User ||--o{ PostForum : creates
-  User ||--o{ ComentariosPostFeed : writes
-  User ||--o{ ComentariosPostForum : writes
-  User ||--o{ Like : likes
-  User ||--o{ Upvote : votes
-  User ||--o{ DownVote : votes
-  User ||--o{ Plantio : owns
-  User ||--o{ Habilidade : has
+  User ||--o{ PostFeed : cria
+  User ||--o{ PostForum : cria
+  User ||--o{ ComentariosPostFeed : escreve
+  User ||--o{ ComentariosPostForum : escreve
+  User ||--o{ Like : curte
+  User ||--o{ Upvote : vota
+  User ||--o{ DownVote : vota
+  User ||--o{ Plantio : contém
+  User }o--|{ Habilidade : tem
 
-  PostFeed ||--o{ ComentariosPostFeed : has
-  PostFeed ||--o{ Like : receives
+  ComentariosPostFeed ||--o{ ComentariosPostFeed : responde
 
-  PostForum ||--o{ ComentariosPostForum : has
-  PostForum ||--o{ Upvote : receives
-  PostForum ||--o{ DownVote : receives
+  PostFeed ||--o{ ComentariosPostFeed : tem
+  PostFeed ||--o{ Like : recebe
 
-  Plantio ||--o{ PlantaPlantio : links
-  Planta ||--o{ PlantaPlantio : links
+  ComentariosPostForum ||--o{ ComentariosPostForum : responde
 
-  Plantio ||--o{ Problema : has
-  Plantio ||--o{ TutorialPlantio : uses
-  Plantio ||--o{ Tarefa : schedules
+  PostForum ||--o{ ComentariosPostForum : tem
+  PostForum ||--o{ Upvote : recebe
+  PostForum ||--o{ DownVote : recebe
 
-  TutorialPlantio ||--o{ Tarefa : contains
+  Planta ||--o{ Plantio : contém
 
-  Tarefa ||--o{ Requisitos : needs
-  Habilidade ||--o{ Requisitos : fulfills
+  Plantio ||--o{ Problema : tem
+  Plantio ||--|{ TutorialPlantio : usa
+  Plantio ||--|{ Tarefa : agenda
 
-  Habilidade }o--|| Pericia : belongs_to
+  TutorialPlantio ||--o{ Tarefa : contém
+
+  Tarefa }|--|| Pericia : usa
+
+  Habilidade }|--o{ Planta : requer
+  Habilidade ||--o{ Pericia : pertence
 ```
