@@ -110,7 +110,7 @@ erDiagram
   User ||--o{ Like : curte
   User ||--o{ Upvote : vota
   User ||--o{ DownVote : vota
-  User ||--o{ Plantio : contém
+  User ||--o{ Plantio : contem
   User }o--|{ Habilidade : tem
 
   ComentariosPostFeed ||--o{ ComentariosPostFeed : responde
@@ -124,13 +124,13 @@ erDiagram
   PostForum ||--o{ Upvote : recebe
   PostForum ||--o{ DownVote : recebe
 
-  Planta ||--o{ Plantio : contém
+  Planta ||--o{ Plantio : contem
 
   Plantio ||--o{ Problema : tem
   Plantio ||--|{ TutorialPlantio : usa
   Plantio ||--|{ Tarefa : agenda
 
-  TutorialPlantio ||--o{ Tarefa : contém
+  TutorialPlantio ||--o{ Tarefa : contem
 
   Tarefa }|--|| Pericia : usa
 
