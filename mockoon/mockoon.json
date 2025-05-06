@@ -79,6 +79,10 @@
       "children": [
         {
           "type": "route",
+          "uuid": "8d9e7c6b-5a4f-3e2d-1c0b-9a8b7c6d5e4f"
+        },
+        {
+          "type": "route",
           "uuid": "979f28a7-811f-4e09-b56b-ef944bf81cfe"
         },
         {
@@ -861,6 +865,42 @@
         {
           "uuid": "0693ac91-6837-45f6-ade5-b15b9f095f44",
           "body": "{\n  \"total\": 10,\n  \"itensPorPagina\": 3,\n  \"paginaAtual\": {{queryParam 'page' '1'}},\n  \"ultimaPagina\": 4,\n  \"itens\": [\n    {\n      \"id\": 1,\n      \"nome\": \"Bananeira\",\n      \"quantidade\": 5\n    },\n    {\n      \"id\": 2,\n      \"nome\": \"Limoeiro\",\n      \"quantidade\": 3\n    },\n    {\n      \"id\": 3,\n      \"nome\": \"Macieira\",\n      \"quantidade\": 2\n    }\n  ]\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "8d9e7c6b-5a4f-3e2d-1c0b-9a8b7c6d5e4f",
+      "type": "http",
+      "documentation": "Get all plantios",
+      "method": "get",
+      "endpoint": "gerenciamento/plantios",
+      "responses": [
+        {
+          "uuid": "7c6b5a4f-3e2d-1c0b-9a8b-7c6d5e4f3a2b",
+          "body": "{\n  \"total\": {{random 10 25}},\n  \"itensPorPagina\": 10,\n  \"paginaAtual\": {{queryParam 'page' '1'}},\n  \"ultimaPagina\": 3,\n  \"itens\": [\n    {{# repeat (queryParam 'total' '10') }}\n    {\n      \"id\": {{@index}},\n      \"planta\": {\n        \"id\": {{faker 'number.int' min=1 max=100}},\n        \"nome\": \"{{random 'Alface' 'Tomate' 'Cenoura' 'Bananeira' 'Manjericão' 'Orégano' 'Alecrim' 'Morango' 'Pimentão' 'Uva' 'Limão' 'Abacate'}}\",\n        \"foto\": \"{{faker 'image.urlPicsumPhotos' height='1000' width='1000' }}\",\n        \"estacaoIdeal\": \"{{random 'Primavera' 'Verão' 'Outono' 'Inverno' 'Todas'}}\",\n        \"temperaturaIdeal\": {\n          \"minima\": {{faker 'number.int' min=5 max=20}},\n          \"maxima\": {{faker 'number.int' min=25 max=35}}\n        },\n        \"nomeCientifico\": \"{{lorem 2}}\",\n        \"categoria\": \"{{random 'Frutífera' 'Hortaliça' 'Tempero' 'Ornamental' 'Medicinal'}}\"\n      },\n      \"situacao\": \"{{random 'Plantado' 'Germinando' 'Crescendo' 'Florescendo' 'Frutificando' 'Pronto para colheita' 'Colhido' 'Finalizado'}}\",\n      \"saude\": {\n        \"label\": \"{{random 'Saudável' 'Com problemas' 'Doente' 'Recuperando'}}\",\n        \"valor\": {{faker 'number.float' min=0 max=1 precision=0.01}}\n      },\n      \"sede\": {\n        \"label\": \"{{random 'Nenhuma' 'Baixa' 'Média' 'Alta' 'Crítica'}}\",\n        \"valor\": {{faker 'number.float' min=0 max=1 precision=0.01}}\n      },\n      \"dataPlantio\": \"{{date '2023-01-01' '2024-12-31' 'YYYY-MM-DD'}}\",\n      \"dataColheita\": \"{{date '2025-01-01' '2026-12-31' 'YYYY-MM-DD'}}\",\n      \"informacoes_adicionais\": \"{{faker 'lorem.sentence'}}\"\n    },\n    {{/ repeat }}\n  ]\n}",
           "latency": 0,
           "statusCode": 200,
           "label": "",
