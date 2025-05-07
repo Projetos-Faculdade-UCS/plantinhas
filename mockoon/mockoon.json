@@ -136,6 +136,24 @@
           "uuid": "1d5c780c-3e4a-429c-912a-ac60c2c7ff27"
         }
       ]
+    },
+    {
+      "uuid": "3e7165fd-a607-43eb-aae4-9a29e65a1d82",
+      "name": "auth",
+      "children": [
+        {
+          "type": "route",
+          "uuid": "1db2f9a8-b1a7-48c2-a5dd-d030a704b57d"
+        },
+        {
+          "type": "route",
+          "uuid": "612916f1-b55c-4455-9597-429908e60bf2"
+        },
+        {
+          "type": "route",
+          "uuid": "d2a650ca-af86-4ff7-b836-cf6b99266f20"
+        }
+      ]
     }
   ],
   "routes": [
@@ -1038,6 +1056,99 @@
       "responseMode": null,
       "streamingMode": null,
       "streamingInterval": 0
+    },
+    {
+      "uuid": "1db2f9a8-b1a7-48c2-a5dd-d030a704b57d",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "auth/api/v1/google/",
+      "responses": [
+        {
+          "uuid": "1371398d-adb6-49c7-885b-d65c9ab8586b",
+          "body": "{\n  \"refresh\": \"{{ faker 'internet.jwt' }}\",\n  \"access\": \"{{ faker 'internet.jwt' }}\",\n  \"exp\": 1746657719\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "612916f1-b55c-4455-9597-429908e60bf2",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "profile",
+      "responses": [
+        {
+          "uuid": "809a4168-fbb6-45ed-b2ec-296794e2eca2",
+          "body": "{\n  \"id\": {{ int 10 25}},\n  \"profile_picture\":  \"{{ faker 'image.personPortrait' }}\",\n  \"user\": {\n    \"id\": {{ int 10 25 }},\n    \"email\": \"{{ faker 'internet.email' }}\",\n    \"username\": \"{{ faker 'internet.username' }}\",\n    \"first_name\": \"{{ faker 'person.firstName' }}\",\n    \"last_name\": \"{{ faker 'person.lastName' }}\"\n  }\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "d2a650ca-af86-4ff7-b836-cf6b99266f20",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "auth/api/v1/refresh/",
+      "responses": [
+        {
+          "uuid": "f6e7efee-41d6-45c2-8fb7-6f8c154b8f38",
+          "body": "{\n  \"refresh\": \"{{ faker 'internet.jwt' }}\",\n  \"access\": \"{{ faker 'internet.jwt' }}\",\n  \"exp\": 1746657719\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
     }
   ],
   "rootChildren": [
@@ -1060,6 +1171,10 @@
     {
       "type": "folder",
       "uuid": "9edf70e8-feb5-4c9b-92a4-996046c13fe5"
+    },
+    {
+      "type": "folder",
+      "uuid": "3e7165fd-a607-43eb-aae4-9a29e65a1d82"
     }
   ],
   "proxyMode": false,
