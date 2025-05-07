@@ -1,139 +1,48 @@
-# plantinhas
-Agrupador plantinhas
+# Plantinhas - Documentação
 
-# Diagrama ER
-```mermaid
-erDiagram
-  User {
-    string first_name
-    string last_name
-    string username
-    string email
-    string contact
-    date birthday
-    string photo
-  }
+<div align="center">
+  <img src="assets/plantinhas-ico.png" alt="Plantinhas Logo" width="200">
+</div>
 
-  Planta {
-    string nome
-    string foto
-    string horas_sol
-    string solo_ideal
-    string ventilacao
-    string temperatura_ideal
-    string estacao_plantio
-    int dias_maturidade
-    string categoria
-    int dificuldade
-  }
+## 🌱 Visão Geral
 
-  Plantio {
-    date data_plantio
-    date data_prevista_colheita
-    string localizacao
-    string espaco_disponivel
-    string status
-    float nota_experiencia
-    float saude
-    float sede
-  }
+Plantinhas é um jardim virtual onde os usuários podem acompanhar o crescimento de suas plantas favoritas e comparar o progresso com outros jardineiros. É o lugar perfeito para descobrir se a grama do vizinho realmente é mais verde!
 
-  Problema {
-    string nome
-    string descricao
-    string tratamento
-  }
+## 🏗️ Arquitetura
 
-  TutorialPlantio {
-    string titulo
-    string descricao
-    int ordem
-    string foto
-  }
+O projeto é composto por vários componentes independentes:
 
-  Tarefa {
-    string descricao
-    string tipo
-    string frequencia
-    int quantidade_total
-    int quantidade_completada
-    string cron
-  }
+- 🖌️ **Frontend**: Next.js + Tailwind CSS
+- 🔧 **Backend**: Django com Django Rest Framework
+- 🤖 **AI Generation API**: FastAPI integrado com OpenAI
+- 🌦️ **APIs de Clima e Tempo**: Integração com serviços externos
 
-  Pericia {
-    string nome
-    string descricao
-    float multiplicador_xp
-  }
+> ⚠️ **Nota**: Os componentes do sistema estão em outros repositórios. Este repositório contém apenas documentação.
 
-  Habilidade {
-    string tipo
-    int xp
-    int nivel
-  }
+## 🔄 Fluxo Principal
 
-  PostFeed {
-    string legenda
-    list photos
-    list qtde_likes
-  }
+1. Usuário cria uma conta e configura seu perfil
+2. Adiciona plantas ao seu jardim virtual
+3. Acompanha o crescimento através de tarefas e notificações
+4. Compartilha o progresso no fórum e feed social
+5. Recebe recomendações personalizadas baseadas em IA
 
-  ComentariosPostFeed {
-    string conteudo
-  }
+## 📲 Principais Funcionalidades
 
-  Like {
-  }
+- 🌿 **Gerenciamento de Plantas**: Cadastro e monitoramento de plantas
+- 📝 **Fórum de Discussão**: Compartilhamento de experiências e dúvidas
+- 📊 **Acompanhamento de Crescimento**: Registro do desenvolvimento das plantas
+- 🤖 **Recomendações por IA**: Sugestões personalizadas para cultivo
+- 🌦️ **Integração Climática**: Alertas baseados em condições meteorológicas
 
-  PostForum {
-    string legenda
-    list photos
-    int qtde_upvotes
-    int qtde_downvotes
-  }
+## 🧪 Mockoon
 
-  ComentariosPostForum {
-    string conteudo
-  }
+Para desenvolvimento local, utilizamos o Mockoon para simular as APIs. Confira a configuração em [`mockoon/mockoon.json`](mockoon/mockoon.json).
 
-  Upvote {
-  }
+## 🗂️ Modelo de Dados
 
-  DownVote {
-  }
+Um diagrama ER detalhado do sistema pode ser encontrado em [`diagrama-er/README.md`](diagrama-er/README.md).
 
-  %% Relationships
-  User ||--o{ PostFeed : cria
-  User ||--o{ PostForum : cria
-  User ||--o{ ComentariosPostFeed : escreve
-  User ||--o{ ComentariosPostForum : escreve
-  User ||--o{ Like : curte
-  User ||--o{ Upvote : vota
-  User ||--o{ DownVote : vota
-  User ||--o{ Plantio : contem
-  User }o--|{ Habilidade : tem
+---
 
-  ComentariosPostFeed ||--o{ ComentariosPostFeed : responde
-
-  PostFeed ||--o{ ComentariosPostFeed : tem
-  PostFeed ||--o{ Like : recebe
-
-  ComentariosPostForum ||--o{ ComentariosPostForum : responde
-
-  PostForum ||--o{ ComentariosPostForum : tem
-  PostForum ||--o{ Upvote : recebe
-  PostForum ||--o{ DownVote : recebe
-
-  Planta ||--o{ Plantio : contem
-
-  Plantio ||--o{ Problema : tem
-  Plantio ||--|{ TutorialPlantio : usa
-  Plantio ||--|{ Tarefa : agenda
-
-  TutorialPlantio ||--o{ Tarefa : contem
-
-  Tarefa }|--|| Pericia : usa
-
-  Habilidade }|--o{ Planta : requer
-  Habilidade ||--o{ Pericia : pertence
-```
+📝 *Esta documentação é específica para este repositório de documentação. Os componentes do sistema estão em repositórios separados.*
