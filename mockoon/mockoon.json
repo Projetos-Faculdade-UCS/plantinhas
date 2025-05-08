@@ -152,6 +152,10 @@
         {
           "type": "route",
           "uuid": "d2a650ca-af86-4ff7-b836-cf6b99266f20"
+        },
+        {
+          "type": "route",
+          "uuid": "66afeb03-e0b2-46cd-a103-37d13f3546a2"
         }
       ]
     }
@@ -1129,6 +1133,37 @@
         {
           "uuid": "f6e7efee-41d6-45c2-8fb7-6f8c154b8f38",
           "body": "{\n  \"refresh\": \"{{ faker 'internet.jwt' }}\",\n  \"access\": \"{{ faker 'internet.jwt' }}\",\n  \"exp\": 1746657719\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "66afeb03-e0b2-46cd-a103-37d13f3546a2",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": ".well-known/jwks.json",
+      "responses": [
+        {
+          "uuid": "500b4f05-ff71-4f2a-977e-74b5f51c21c8",
+          "body": "{\n    \"keys\": [\n        {\n            \"kty\": \"RSA\",\n            \"kid\": \"ctP7EYkuuaSli56JoarltfNdaAwYLYGju4MOVb5domY\",\n            \"n\": \"pKYegl32JrXv98itxoRjH8Jp1OGsi6gXJKKKlkIz6I6ZcLoS7eZafJGPnBqO4vnH1klHar7ibBKnTn1skFbZWe_Zn5CAqh48z-VljGncBcfZz8dZQnhBUpHL-l5c21mvrKNAs4KtqMTueC8sYovhKZgKR5jtxsXpPGEhFI6rJKYFkc6wG_qd1Mf9tvTzmppSwzkhHjsfXn1-71abg3q4d00_G_3U48pLyXP34_pNXEhHGkpazEH5VvzgqhKdu7WDJDEqF9AvpHjdThFP4esGYLEcdkV9WT1aJBv1BRttOX0jFOr9ASVLLzrw3VNKjKv2bfLZNpWocwszQT6PFLMtZQ\",\n            \"e\": \"AQAB\"\n        }\n    ]\n}",
           "latency": 0,
           "statusCode": 200,
           "label": "",
