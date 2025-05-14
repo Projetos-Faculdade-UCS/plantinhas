@@ -120,6 +120,18 @@
         {
           "type": "route",
           "uuid": "6903233e-c7e8-4c02-8e81-8a73e7fb6f1b"
+        },
+        {
+          "type": "route",
+          "uuid": "5c5c028c-ecf7-4009-8ee8-5f56e6654bf2"
+        },
+        {
+          "type": "route",
+          "uuid": "20db3f42-5bf5-42a5-b0dc-12a2d4b02c33"
+        },
+        {
+          "type": "route",
+          "uuid": "9333e935-1c40-4a52-b02e-d11e3c03c383"
         }
       ]
     },
@@ -602,7 +614,7 @@
       "responses": [
         {
           "uuid": "ee8844cf-e1c7-4be2-8cde-46258baa13e5",
-          "body": "{\n  \"id\": {{urlParam 'id'}},\n  \"planta\": {\n    \"id\": 22,\n    \"nome\": \"Uva\",\n    \"foto\": \"{{faker 'image.urlPicsumPhotos' height='1000' width='1000' }}\",\n    \"estacaoIdeal\": \"Verão\",\n    \"temperaturaIdeal\": {\n      \"minima\": 15,\n      \"maxima\": 30\n    },\n    \"nomeCientifico\": \"Vitis vinifera\",\n    \"categoria\": \"Frutífera\"\n  },\n  \"situacao\": \"Florescendo\",\n  \"saude\": {\n    \"label\": \"Saudável\",\n    \"valor\": 0.2\n  },\n  \"sede\": {\n    \"label\": \"Nenhuma\",\n    \"valor\": 0.0\n  },\n  \"dataPlantio\": \"2023-10-01\",\n  \"dataColheita\": \"2024-10-01\",\n  \"informacoes_adicionais\": \"Gostaria de uma pequena parreira na varanda, para comer uvas frescas.\"\n}",
+          "body": "{\n  \"id\": {{urlParam 'id'}},\n  \"planta\":  {{oneOf ( dataRaw 'PlantaPreviewList') (object)}},\n  \"situacao\": \"Florescendo\",\n  \"saude\": {\n    \"label\": \"Saudável\",\n    \"valor\": 0.2\n  },\n  \"sede\": {\n    \"label\": \"Nenhuma\",\n    \"valor\": 0.0\n  },\n  \"dataPlantio\": \"2023-10-01\",\n  \"dataColheita\": \"2024-10-01\",\n  \"informacoes_adicionais\": \"Gostaria de uma pequena parreira na varanda, para comer uvas frescas.\"\n}",
           "latency": 0,
           "statusCode": 200,
           "label": "",
@@ -818,7 +830,7 @@
       "responses": [
         {
           "uuid": "0f4e6cf9-ac5c-493e-bc14-526e2c4aff60",
-          "body": "{\n  \"quantidade\": 5,\n  \"items\": [\n    {\n      \"id\": 1,\n      \"nome\": \"Ornamentais\",\n      \"quantidadePlantas\": 20,\n      \"plantas\": [\n        {{oneOf ( dataRaw 'PlantaPreview') (object)}},\n        {{oneOf ( dataRaw 'PlantaPreview') (object)}},\n        {{oneOf ( dataRaw 'PlantaPreview') (object)}},\n        {{oneOf ( dataRaw 'PlantaPreview') (object)}},\n        {{oneOf ( dataRaw 'PlantaPreview') (object)}},\n        {{oneOf ( dataRaw 'PlantaPreview') (object)}}\n      ]\n    },\n        {\n      \"id\": 2,\n      \"nome\": \"Medicinais\",\n      \"quantidadePlantas\": 30,\n      \"plantas\": [\n        {{oneOf ( dataRaw 'PlantaPreview') (object)}},\n        {{oneOf ( dataRaw 'PlantaPreview') (object)}},\n        {{oneOf ( dataRaw 'PlantaPreview') (object)}},\n        {{oneOf ( dataRaw 'PlantaPreview') (object)}},\n        {{oneOf ( dataRaw 'PlantaPreview') (object)}},\n        {{oneOf ( dataRaw 'PlantaPreview') (object)}}\n      ]\n    },\n        {\n      \"id\": 3,\n      \"nome\": \"Frutiferas\",\n      \"quantidadePlantas\": 44,\n      \"plantas\": [\n        {{oneOf ( dataRaw 'PlantaPreview') (object)}},\n        {{oneOf ( dataRaw 'PlantaPreview') (object)}},\n        {{oneOf ( dataRaw 'PlantaPreview') (object)}},\n        {{oneOf ( dataRaw 'PlantaPreview') (object)}},\n        {{oneOf ( dataRaw 'PlantaPreview') (object)}},\n        {{oneOf ( dataRaw 'PlantaPreview') (object)}}\n      ]\n    },\n        {\n      \"id\": 4,\n      \"nome\": \"Hortaliças\",\n      \"quantidadePlantas\": 20,\n      \"plantas\": [\n        {{oneOf ( dataRaw 'PlantaPreview') (object)}},\n        {{oneOf ( dataRaw 'PlantaPreview') (object)}},\n        {{oneOf ( dataRaw 'PlantaPreview') (object)}},\n        {{oneOf ( dataRaw 'PlantaPreview') (object)}},\n        {{oneOf ( dataRaw 'PlantaPreview') (object)}},\n        {{oneOf ( dataRaw 'PlantaPreview') (object)}}\n      ]\n    },\n        {\n      \"id\": 5,\n      \"nome\": \"Árvores\",\n      \"quantidadePlantas\": 4,\n      \"plantas\": [\n        {{oneOf ( dataRaw 'PlantaPreview') (object)}},\n        {{oneOf ( dataRaw 'PlantaPreview') (object)}},\n        {{oneOf ( dataRaw 'PlantaPreview') (object)}},\n        {{oneOf ( dataRaw 'PlantaPreview') (object)}}\n      ]\n    }\n  ]\n}",
+          "body": "{\n  \"quantidade\": 5,\n  \"items\": [\n    {\n      \"id\": 1,\n      \"nome\": \"Ornamentais\",\n      \"descricao\": \"{{faker 'food.description'}}\",\n      \"quantidadePlantas\": 30,\n      \"plantas\": {{{stringify (slice (dataRaw 'PlantaPreviewList') 0 6) }}}\n    },\n        {\n      \"id\": 2,\n      \"nome\": \"Medicinais\",\n      \"descricao\": \"{{faker 'food.description'}}\",\n      \"quantidadePlantas\": 30,\n      \"plantas\": {{{stringify (slice (dataRaw 'PlantaPreviewList') 6 12) }}}\n    },\n        {\n      \"id\": 3,\n      \"nome\": \"Frutiferas\",\n      \"descricao\": \"{{faker 'food.description'}}\",\n      \"quantidadePlantas\": 44,\n      \"plantas\": {{{stringify (slice (dataRaw 'PlantaPreviewList') 12 18) }}}\n    },\n        {\n      \"id\": 4,\n      \"nome\": \"Hortaliças\",\n      \"descricao\": \"{{faker 'food.description'}}\",\n      \"quantidadePlantas\": 20,\n      \"plantas\": {{{stringify (slice (dataRaw 'PlantaPreviewList') 18 24) }}}\n    },\n        {\n      \"id\": 5,\n      \"nome\": \"Árvores\",\n      \"descricao\": \"{{faker 'food.description'}}\",\n      \"quantidadePlantas\": 4,\n      \"plantas\": {{{stringify (slice (dataRaw 'PlantaPreviewList') 24 30) }}}\n    }\n  ]\n}",
           "latency": 0,
           "statusCode": 200,
           "label": "",
@@ -890,7 +902,7 @@
       "responses": [
         {
           "uuid": "0693ac91-6837-45f6-ade5-b15b9f095f44",
-          "body": "{\n  \"total\": 10,\n  \"itensPorPagina\": 3,\n  \"paginaAtual\": {{queryParam 'page' '1'}},\n  \"ultimaPagina\": 4,\n  \"itens\": {{data 'PlantaPreview'}}\n}",
+          "body": "{\n  \"total\": 10,\n  \"itensPorPagina\": 3,\n  \"paginaAtual\": {{queryParam 'page' '1'}},\n  \"ultimaPagina\": 4,\n  \"itens\": {{data 'PlantaPreviewList'}}\n}",
           "latency": 0,
           "statusCode": 200,
           "label": "",
@@ -926,7 +938,7 @@
       "responses": [
         {
           "uuid": "7c6b5a4f-3e2d-1c0b-9a8b-7c6d5e4f3a2b",
-          "body": "{\n  \"total\": {{ int 10 25}},\n  \"itensPorPagina\": 10,\n  \"paginaAtual\": {{queryParam 'page' '1'}},\n  \"ultimaPagina\": 3,\n  \"itens\": [\n    {{# repeat (queryParam 'total' '10') }}\n    {\n      \"id\": {{@index}},\n      \"planta\": {{oneOf ( dataRaw 'PlantaPreview') (object)}},\n      \"situacao\": \"{{oneOf (array 'Plantado' 'Germinando' 'Crescendo' 'Florescendo' 'Frutificando' 'Pronto para colheita' 'Colhido' 'Finalizado')}}\",\n      \"saude\": {\n        \"label\": \"{{oneOf (array 'Saudável' 'Com problemas' 'Doente' 'Recuperando') }}\",\n        \"value\": {{faker 'number.float' min=0 max=1 precision=0.01}}\n      },\n      \"sede\": {\n        \"label\": \"{{oneOf (array 'Nenhuma' 'Baixa' 'Média' 'Alta' 'Crítica')}}\",\n        \"value\": {{faker 'number.float' min=0 max=1 precision=0.01}}\n      },\n      \"dataPlantio\": \"{{date '2023-01-01' '2024-12-31' 'YYYY-MM-DD'}}\",\n      \"dataColheita\": \"{{date '2025-01-01' '2026-12-31' 'YYYY-MM-DD'}}\",\n      \"informacoes_adicionais\": \"{{faker 'lorem.sentence'}}\"\n    },\n    {{/ repeat }}\n  ]\n}",
+          "body": "{\n  \"total\": {{ int 10 25}},\n  \"itensPorPagina\": 10,\n  \"paginaAtual\": {{queryParam 'page' '1'}},\n  \"ultimaPagina\": 3,\n  \"itens\": [\n    {{# repeat (queryParam 'total' '10') }}\n    {\n      \"id\": {{@index}},\n      \"planta\": {{oneOf ( dataRaw 'PlantaPreviewList') (object)}},\n      \"situacao\": \"{{oneOf (array 'Plantado' 'Germinando' 'Crescendo' 'Florescendo' 'Frutificando' 'Pronto para colheita' 'Colhido' 'Finalizado')}}\",\n      \"saude\": {\n        \"label\": \"{{oneOf (array 'Saudável' 'Com problemas' 'Doente' 'Recuperando') }}\",\n        \"value\": {{faker 'number.float' min=0 max=1 precision=0.01}}\n      },\n      \"sede\": {\n        \"label\": \"{{oneOf (array 'Nenhuma' 'Baixa' 'Média' 'Alta' 'Crítica')}}\",\n        \"value\": {{faker 'number.float' min=0 max=1 precision=0.01}}\n      },\n      \"dataPlantio\": \"{{date '2023-01-01' '2024-12-31' 'YYYY-MM-DD'}}\",\n      \"dataColheita\": \"{{date '2025-01-01' '2026-12-31' 'YYYY-MM-DD'}}\",\n      \"informacoes_adicionais\": \"{{faker 'lorem.sentence'}}\"\n    },\n    {{/ repeat }}\n  ]\n}",
           "latency": 0,
           "statusCode": 200,
           "label": "",
@@ -1184,6 +1196,114 @@
       "responseMode": null,
       "streamingMode": null,
       "streamingInterval": 0
+    },
+    {
+      "uuid": "5c5c028c-ecf7-4009-8ee8-5f56e6654bf2",
+      "type": "http",
+      "documentation": "Get plants for a specific category",
+      "method": "get",
+      "endpoint": "gerenciamento/plantas",
+      "responses": [
+        {
+          "uuid": "1473b045-d23e-491d-a901-bfa3f6668727",
+          "body": "{\n  \"total\": 10,\n  \"itensPorPagina\": 3,\n  \"paginaAtual\": {{queryParam 'page' '1'}},\n  \"ultimaPagina\": 4,\n  \"itens\": {{data 'PlantaPreviewList'}}\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "20db3f42-5bf5-42a5-b0dc-12a2d4b02c33",
+      "type": "http",
+      "documentation": "Get plants for a specific category",
+      "method": "get",
+      "endpoint": "gerenciamento/plantas/:id",
+      "responses": [
+        {
+          "uuid": "7c2a4df5-0441-40a5-b7f0-310803ad2577",
+          "body": "{{oneOf ( dataRaw 'Planta') (object)}}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "9333e935-1c40-4a52-b02e-d11e3c03c383",
+      "type": "http",
+      "documentation": "Create a new plantio",
+      "method": "post",
+      "endpoint": "gerenciamento/planta/sugerir",
+      "responses": [
+        {
+          "uuid": "0c3f18ad-3944-4d5c-91cb-e8de78b2d244",
+          "body": "{\n \"id\": {{faker 'number.int' min=1 max=100}},\n  \"nome\": \"{{oneOf (array 'Alface' 'Tomate' 'Cenoura' 'Bananeira' 'Manjericão' 'Orégano' 'Alecrim' 'Morango' 'Pimentão' 'Uva' 'Limão' 'Abacate')}}\",\n  \"foto\": \"{{faker 'image.urlPicsumPhotos' height='1000' width='1000' }}\"\n}",
+          "latency": 0,
+          "statusCode": 201,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
     }
   ],
   "rootChildren": [
@@ -1275,14 +1395,14 @@
       "id": "aved",
       "name": "Planta",
       "documentation": "",
-      "value": "[\n{{#repeat 50}}\n  {\n   \"id\": {{faker 'number.int' min=1 max=100}},\n    \"nome\": \"{{oneOf (array 'Alface' 'Tomate' 'Cenoura' 'Bananeira' 'Manjericão' 'Orégano' 'Alecrim' 'Morango' 'Pimentão' 'Uva' 'Limão' 'Abacate')}}\",\n    \"foto\": \"{{faker 'image.urlPicsumPhotos' height='1000' width='1000' }}\",\n    \"descricao\": \"{{faker 'food.description'}}\",\n    \"estacaoIdeal\": \"{{oneOf (array 'Primavera' 'Verão' 'Outono' 'Inverno' 'Todo o ano' )}}\",\n    \"temperaturaIdeal\": {\n      \"minima\": {{faker 'number.int' min=5 max=20}},\n      \"maxima\": {{faker 'number.int' min=25 max=35}}\n    },\n    \"nomeCientifico\": \"{{lorem 2}}\",\n    \"categoria\": {\n      \"id\": {{faker 'number.int' min=1 max=100}},\n      \"nome\": \"{{oneOf (array 'Frutífera' 'Hortaliça' 'Tempero' 'Ornamental' 'Medicinal')}}\",\n      \"descricao\": \"{{ faker 'lorem.sentences' }}\"\n    },\n    \"subcategorias\": {{{someOf (array 'Flor' 'Paisagismo' 'Chá' 'Unguentos' 'Cítricos' 'Ervas culinárias' 'Grãos' 'Legumes'  'Óleos essenciais') 1 3 true }}},\n    \n    \"dificuldade\": {{oneOf (dataRaw 'Dificuldade') (object) }}\n  }\n{{/repeat}}\n]"
+      "value": "[\n{{#repeat 50}}\n  {\n   \"id\": {{@index}},\n    \"nome\": \"{{oneOf (array 'Alface' 'Tomate' 'Cenoura' 'Bananeira' 'Manjericão' 'Orégano' 'Alecrim' 'Morango' 'Pimentão' 'Uva' 'Limão' 'Abacate')}}\",\n    \"foto\": \"{{faker 'image.urlPicsumPhotos' height='1000' width='1000' }}\",\n    \"descricao\": \"{{faker 'food.description'}}\",\n    \"estacaoIdeal\": \"{{oneOf (array 'Primavera' 'Verão' 'Outono' 'Inverno' 'Todo o ano' )}}\",\n    \"temperatura\": {\n      \"minima\": {{faker 'number.int' min=5 max=20}},\n      \"maxima\": {{faker 'number.int' min=25 max=35}},\n      \"ideal\": {{faker 'number.int' min=5 max=35}}\n    },\n    \"nomeCientifico\": \"{{lorem 2}}\",\n    \"categoria\": {\n      \"id\": {{faker 'number.int' min=1 max=100}},\n      \"nome\": \"{{oneOf (array 'Frutífera' 'Hortaliça' 'Tempero' 'Ornamental' 'Medicinal')}}\",\n      \"descricao\": \"{{ faker 'lorem.sentences' }}\"\n    },\n    \"subcategorias\": {{{someOf (array 'Flor' 'Paisagismo' 'Chá' 'Unguentos' 'Cítricos' 'Ervas culinárias' 'Grãos' 'Legumes'  'Óleos essenciais') 1 3 true }}},\n    \n    \"dificuldade\": {{oneOf (dataRaw 'Dificuldade') (object) }}\n  }\n{{/repeat}}\n]"
     },
     {
       "uuid": "4a8e1a45-ca20-4cdd-9ecd-71f600429c45",
       "id": "cixk",
-      "name": "PlantaPreview",
+      "name": "PlantaPreviewList",
       "documentation": "",
-      "value": "[\n{{#repeat 50}}\n  {\n   \"id\": {{faker 'number.int' min=1 max=100}},\n    \"nome\": \"{{oneOf (array 'Alface' 'Tomate' 'Cenoura' 'Bananeira' 'Manjericão' 'Orégano' 'Alecrim' 'Morango' 'Pimentão' 'Uva' 'Limão' 'Abacate')}}\",\n    \"foto\": \"{{faker 'image.urlPicsumPhotos' height='1000' width='1000' }}\",\n    \"dificuldade\": {{oneOf (dataRaw 'Dificuldade') (object) }}\n  }\n{{/repeat}}\n]"
+      "value": "[\n{{#repeat 50 }}\n  {\n   \"id\": {{@index}},\n    \"nome\": \"{{oneOf (array 'Alface' 'Tomate' 'Cenoura' 'Bananeira' 'Manjericão' 'Orégano' 'Alecrim' 'Morango' 'Pimentão' 'Uva' 'Limão' 'Abacate')}}\",\n    \"foto\": \"{{faker 'image.urlPicsumPhotos' height='1000' width='1000' }}\",\n    \"dificuldade\": {{oneOf (dataRaw 'Dificuldade') (object) }}\n  }\n{{/repeat}}\n]"
     }
   ],
   "callbacks": []
