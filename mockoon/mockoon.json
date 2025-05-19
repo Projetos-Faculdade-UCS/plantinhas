@@ -830,7 +830,7 @@
       "responses": [
         {
           "uuid": "0f4e6cf9-ac5c-493e-bc14-526e2c4aff60",
-          "body": "{\n  \"quantidade\": 5,\n  \"items\": [\n    {\n      \"id\": 1,\n      \"nome\": \"Ornamentais\",\n      \"descricao\": \"{{faker 'food.description'}}\",\n      \"quantidadePlantas\": 30,\n      \"plantas\": {{{stringify (slice (dataRaw 'PlantaPreviewList') 0 6) }}}\n    },\n        {\n      \"id\": 2,\n      \"nome\": \"Medicinais\",\n      \"descricao\": \"{{faker 'food.description'}}\",\n      \"quantidadePlantas\": 30,\n      \"plantas\": {{{stringify (slice (dataRaw 'PlantaPreviewList') 6 12) }}}\n    },\n        {\n      \"id\": 3,\n      \"nome\": \"Frutiferas\",\n      \"descricao\": \"{{faker 'food.description'}}\",\n      \"quantidadePlantas\": 44,\n      \"plantas\": {{{stringify (slice (dataRaw 'PlantaPreviewList') 12 18) }}}\n    },\n        {\n      \"id\": 4,\n      \"nome\": \"Hortaliças\",\n      \"descricao\": \"{{faker 'food.description'}}\",\n      \"quantidadePlantas\": 20,\n      \"plantas\": {{{stringify (slice (dataRaw 'PlantaPreviewList') 18 24) }}}\n    },\n        {\n      \"id\": 5,\n      \"nome\": \"Árvores\",\n      \"descricao\": \"{{faker 'food.description'}}\",\n      \"quantidadePlantas\": 4,\n      \"plantas\": {{{stringify (slice (dataRaw 'PlantaPreviewList') 24 30) }}}\n    }\n  ]\n}",
+          "body": "{\n  \"quantidade\": 5,\n  \"items\": [\n    {\n      \"id\": 1,\n      \"nome\": \"Ornamentais\",\n      \"descricao\": \"{{faker 'food.description'}}\",\n      \"quantidadePlantas\": 30,\n      \"plantas\": {{{stringify (someOf (dataRaw 'PlantaPreviewList') 8 8) }}}\n    },\n        {\n      \"id\": 2,\n      \"nome\": \"Medicinais\",\n      \"descricao\": \"{{faker 'food.description'}}\",\n      \"quantidadePlantas\": 30,\n      \"plantas\": {{{stringify (someOf (dataRaw 'PlantaPreviewList')  8 8) }}}\n    },\n        {\n      \"id\": 3,\n      \"nome\": \"Frutiferas\",\n      \"descricao\": \"{{faker 'food.description'}}\",\n      \"quantidadePlantas\": 44,\n      \"plantas\": {{{stringify (someOf (dataRaw 'PlantaPreviewList') 8 8) }}}\n    },\n        {\n      \"id\": 4,\n      \"nome\": \"Hortaliças\",\n      \"descricao\": \"{{faker 'food.description'}}\",\n      \"quantidadePlantas\": 20,\n      \"plantas\": {{{stringify (someOf (dataRaw 'PlantaPreviewList') 8 8) }}}\n    },\n        {\n      \"id\": 5,\n      \"nome\": \"Árvores\",\n      \"descricao\": \"{{faker 'food.description'}}\",\n      \"quantidadePlantas\": 4,\n      \"plantas\": {{{stringify (someOf (dataRaw 'PlantaPreviewList') 4 4) }}}\n    }\n  ]\n}",
           "latency": 0,
           "statusCode": 200,
           "label": "",
@@ -866,7 +866,7 @@
       "responses": [
         {
           "uuid": "5f169cf2-9f76-4b6c-90fa-c18dfe7a781d",
-          "body": "{\n  \"id\": {{urlParam 'id'}},\n  \"nome\": \"{{ oneOf (array 'Frutiferas' 'Árvores' 'Medicinais' 'Ornamentais' 'Hortaliças') }}\",\n  \"quantidadePlantas\": {{int 1 100}}\n}",
+          "body": "{\n  \"id\": {{urlParam 'id'}},\n  \"nome\": \"{{ oneOf (array 'Frutiferas' 'Árvores' 'Medicinais' 'Ornamentais' 'Hortaliças') }}\",\n  \"descricao\": \"{{faker 'food.description'}}\",\n  \"quantidadePlantas\": {{int 1 100}}\n}",
           "latency": 0,
           "statusCode": 200,
           "label": "",
@@ -1388,7 +1388,7 @@
       "id": "qtvc",
       "name": "Dificuldade",
       "documentation": "",
-      "value": "[\n    {\n      \"label\": \"Iniciante\",\n      \"value\": 0.1\n    },\n    {\n      \"label\": \"Fácil\",\n      \"value\": 0.3\n    },\n    {\n      \"label\": \"Médio\",\n      \"value\": 0.5\n    },\n    {\n      \"label\": \"Difícil\",\n      \"value\": 0.7\n    },\n    {\n      \"label\": \"Muito Difícil\",\n      \"value\": 0.9\n    }\n]"
+      "value": "[\n    {\n      \"label\": \"Iniciante\",\n      \"value\": 1.1\n    },\n    {\n      \"label\": \"Fácil\",\n      \"value\": 1.7\n    },\n    {\n      \"label\": \"Médio\",\n      \"value\": 2.8\n    },\n    {\n      \"label\": \"Difícil\",\n      \"value\": 4.0\n    },\n    {\n      \"label\": \"Muito Difícil\",\n      \"value\": 4.8\n    }\n]"
     },
     {
       "uuid": "b79f81ff-08db-4408-9f02-b7862c776a5b",
@@ -1402,7 +1402,7 @@
       "id": "cixk",
       "name": "PlantaPreviewList",
       "documentation": "",
-      "value": "[\n{{#repeat 50 }}\n  {\n   \"id\": {{@index}},\n    \"nome\": \"{{oneOf (array 'Alface' 'Tomate' 'Cenoura' 'Bananeira' 'Manjericão' 'Orégano' 'Alecrim' 'Morango' 'Pimentão' 'Uva' 'Limão' 'Abacate')}}\",\n    \"foto\": \"{{faker 'image.urlPicsumPhotos' height='1000' width='1000' }}\",\n    \"dificuldade\": {{oneOf (dataRaw 'Dificuldade') (object) }}\n  }\n{{/repeat}}\n]"
+      "value": "[\n  {\n    \"id\": 1,\n    \"nome\": \"Alface\",\n    \"foto\": \"/assets/plantas/alface.png\",\n    \"dificuldade\": {{oneOf (dataRaw 'Dificuldade') (object) }}\n  },\n  {\n    \"id\": 2,\n    \"nome\": \"Cidreira\",\n    \"foto\": \"/assets/plantas/cidreira.png\",\n    \"dificuldade\": {{oneOf (dataRaw 'Dificuldade') (object) }}\n  },\n  {\n    \"id\": 3,\n    \"nome\": \"Girassol\",\n    \"foto\": \"/assets/plantas/girassol.png\",\n    \"dificuldade\": {{oneOf (dataRaw 'Dificuldade') (object) }}\n  },\n  {\n    \"id\": 4,\n    \"nome\": \"Hortelã\",\n    \"foto\": \"/assets/plantas/hortela.png\",\n    \"dificuldade\": {{oneOf (dataRaw 'Dificuldade') (object) }}\n  },\n  {\n    \"id\": 5,\n    \"nome\": \"Macieira\",\n    \"foto\": \"/assets/plantas/macieira.png\",\n    \"dificuldade\": {{oneOf (dataRaw 'Dificuldade') (object) }}\n  },\n  {\n    \"id\": 6,\n    \"nome\": \"Morango\",\n    \"foto\": \"/assets/plantas/morango.png\",\n    \"dificuldade\": {{oneOf (dataRaw 'Dificuldade') (object) }}\n  },\n  {\n    \"id\": 7,\n    \"nome\": \"Samambaia\",\n    \"foto\": \"/assets/plantas/samambaia.png\",\n    \"dificuldade\": {{oneOf (dataRaw 'Dificuldade') (object) }}\n  },\n  {\n    \"id\": 8,\n    \"nome\": \"Uva\",\n    \"foto\": \"/assets/plantas/uva.png\",\n    \"dificuldade\": {{oneOf (dataRaw 'Dificuldade') (object) }}\n  }\n]\n"
     }
   ],
   "callbacks": []
