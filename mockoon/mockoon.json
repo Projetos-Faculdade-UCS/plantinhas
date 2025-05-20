@@ -831,7 +831,7 @@
         {
           "uuid": "0f4e6cf9-ac5c-493e-bc14-526e2c4aff60",
           "body": "{\n  \"quantidade\": 5,\n  \"items\": [\n    {\n      \"id\": 1,\n      \"nome\": \"Ornamentais\",\n      \"descricao\": \"{{faker 'food.description'}}\",\n      \"quantidadePlantas\": 30,\n      \"plantas\": {{{stringify (someOf (dataRaw 'PlantaPreviewList') 8 8) }}}\n    },\n        {\n      \"id\": 2,\n      \"nome\": \"Medicinais\",\n      \"descricao\": \"{{faker 'food.description'}}\",\n      \"quantidadePlantas\": 30,\n      \"plantas\": {{{stringify (someOf (dataRaw 'PlantaPreviewList')  8 8) }}}\n    },\n        {\n      \"id\": 3,\n      \"nome\": \"Frutiferas\",\n      \"descricao\": \"{{faker 'food.description'}}\",\n      \"quantidadePlantas\": 44,\n      \"plantas\": {{{stringify (someOf (dataRaw 'PlantaPreviewList') 8 8) }}}\n    },\n        {\n      \"id\": 4,\n      \"nome\": \"Hortaliças\",\n      \"descricao\": \"{{faker 'food.description'}}\",\n      \"quantidadePlantas\": 20,\n      \"plantas\": {{{stringify (someOf (dataRaw 'PlantaPreviewList') 8 8) }}}\n    },\n        {\n      \"id\": 5,\n      \"nome\": \"Árvores\",\n      \"descricao\": \"{{faker 'food.description'}}\",\n      \"quantidadePlantas\": 4,\n      \"plantas\": {{{stringify (someOf (dataRaw 'PlantaPreviewList') 4 4) }}}\n    }\n  ]\n}",
-          "latency": 0,
+          "latency": 4000,
           "statusCode": 200,
           "label": "",
           "headers": [
@@ -1206,10 +1206,10 @@
       "responses": [
         {
           "uuid": "1473b045-d23e-491d-a901-bfa3f6668727",
-          "body": "{\n  \"total\": 10,\n  \"itensPorPagina\": 3,\n  \"paginaAtual\": {{queryParam 'page' '1'}},\n  \"ultimaPagina\": 4,\n  \"itens\": {{data 'PlantaPreviewList'}}\n}",
-          "latency": 0,
+          "body": "{\n  \"total\": 10,\n  \"itensPorPagina\": 3,\n  \"paginaAtual\": {{queryParam 'page' '1'}},\n  \"ultimaPagina\": 4,\n  \"itens\": {{{stringify (someOf (dataRaw 'PlantaPreviewList') 0 8) }}}\n}",
+          "latency": 2000,
           "statusCode": 200,
-          "label": "",
+          "label": "Este edpoint existe para poder filtrar por plantas: ?search=nomeDaPlanta&page=2",
           "headers": [
             {
               "key": "Content-Type",
