@@ -99,10 +99,6 @@
         },
         {
           "type": "route",
-          "uuid": "696bd97b-f433-41d5-8ff2-82e7139350f9"
-        },
-        {
-          "type": "route",
           "uuid": "6626ed26-3a06-41fb-a17e-1b8964fa924f"
         },
         {
@@ -686,43 +682,7 @@
       "responses": [
         {
           "uuid": "62636fc9-3047-4bb2-8a0c-e77ecbfbcbc0",
-          "body": "[\n  {\n    \"id\": 1,\n    \"descricao\": \"Regar a planta\",\n    \"ultimaAlteracao\": \"2023-10-02\",\n    \"frequencia\": \"Diária\",\n    \"quantidadeTotal\": 1,\n    \"quantidadeCompletada\": 0,\n    \"status\": \"Pendente\"\n  },\n  {\n    \"id\": 2,\n    \"descricao\": \"Adicionar fertilizante\",\n    \"ultimaAlteracao\": \"2023-10-05\",\n    \"frequencia\": \"Semanal\",\n    \"quantidadeTotal\": 2,\n    \"quantidadeCompletada\": 1,\n    \"status\": \"Concluído\"\n  },\n  {\n    \"id\": 3,\n    \"descricao\": \"Verificar pragas\",\n    \"ultimaAlteracao\": \"2023-10-06\",\n    \"frequencia\": \"Mensal\",\n    \"quantidadeTotal\": 1,\n    \"quantidadeCompletada\": 0,\n    \"status\": \"Pendente\"\n  }\n]",
-          "latency": 0,
-          "statusCode": 200,
-          "label": "",
-          "headers": [
-            {
-              "key": "Content-Type",
-              "value": "application/json"
-            }
-          ],
-          "bodyType": "INLINE",
-          "filePath": "",
-          "databucketID": "",
-          "sendFileAsBody": false,
-          "rules": [],
-          "rulesOperator": "OR",
-          "disableTemplating": false,
-          "fallbackTo404": false,
-          "default": true,
-          "crudKey": "id",
-          "callbacks": []
-        }
-      ],
-      "responseMode": null,
-      "streamingMode": null,
-      "streamingInterval": 0
-    },
-    {
-      "uuid": "696bd97b-f433-41d5-8ff2-82e7139350f9",
-      "type": "http",
-      "documentation": "Get plantio tutorial",
-      "method": "get",
-      "endpoint": "gerenciamento/plantios/:id/tutorial",
-      "responses": [
-        {
-          "uuid": "239c7908-a301-49c5-b971-0d27bf5f0722",
-          "body": "{\n  \"materiais\": [\n    {\n      \"nome\": \"Vaso de planta\",\n      \"quantidade\": 1,\n      \"descricao\": \"Um vaso grande para acomodar a planta.\",\n      \"foto\": \"https://example.com/imagens/vaso.jpg\"\n    },\n    {\n      \"nome\": \"Terra para plantio\",\n      \"quantidade\": 5,\n      \"descricao\": \"Mistura de terra e adubo.\",\n      \"foto\": \"https://example.com/imagens/terra.jpg\"\n    },\n    {\n      \"nome\": \"Fertilizante\",\n      \"quantidade\": 1,\n      \"descricao\": \"Fertilizante orgânico para plantas frutíferas.\",\n      \"foto\": \"https://example.com/imagens/fertilizante.jpg\"\n    }\n  ],\n  \"etapas\": [\n    {\n      \"ordem\": 1,\n      \"descricao\": \"Preparar o vaso com terra\",\n      \"detalhamento\": \"Coloque a terra no vaso, deixando espaço para a planta.\",\n      \"obrigatorio\": true\n    },\n    {\n      \"ordem\": 2,\n      \"descricao\": \"Adicionar a planta ao vaso\",\n      \"detalhamento\": \"Coloque a planta cuidadosamente no vaso, cobrindo as raízes com terra.\",\n      \"obrigatorio\": true\n    },\n    {\n      \"ordem\": 3,\n      \"descricao\": \"Regar a planta\",\n      \"detalhamento\": \"Adicione água até que a terra esteja úmida, mas não encharcada.\",\n      \"obrigatorio\": true\n    },\n    {\n      \"ordem\": 4,\n      \"descricao\": \"Adicionar fertilizante\",\n      \"detalhamento\": \"Misture o fertilizante na terra ao redor da planta.\",\n      \"obrigatorio\": false\n    },\n    {\n      \"ordem\": 5,\n      \"descricao\": \"Colher os frutos quando maduros\",\n      \"detalhamento\": \"Verifique a maturação dos frutos e colha quando estiverem prontos.\",\n      \"obrigatorio\": false\n    }\n  ]\n}",
+          "body": "[\n  {\n    \"id\": 1,\n    \"nome\": \"Regar a planta\",\n    \"status\": \"Pendente\",\n    \"tipo\": \"cuidados\",\n    \"quantidadeTotal\": 3,\n    \"quantidadeCompletada\": 1,\n    \"ultimaAlteracao\": \"{{faker 'date.anytime'}}\",\n    \"cron\": \"0 7 * * *\",\n    \"habilidade_requerida\": {\n      \"nome\": \"Irrigação básica\",\n      \"multiplicador_xp\": 1.1\n    },\n    \"tutorial\": {{oneOf (dataRaw 'Tutoriais') (object)}}\n  },\n  {\n    \"id\": 2,\n    \"nome\": \"Adicionar fertilizante\",\n    \"status\": \"Pendente\",\n    \"tipo\": \"nutrição\",\n    \"quantidadeTotal\": 2,\n    \"quantidadeCompletada\": 0,\n    \"ultimaAlteracao\": \"{{faker 'date.anytime'}}\",\n    \"cron\": \"0 8 * * 1\",\n    \"habilidade_requerida\": {\n      \"nome\": \"Adubagem eficiente\",\n      \"multiplicador_xp\": 1.3\n    },\n    \"tutorial\": {{oneOf (dataRaw 'Tutoriais') (object)}}\n  },\n  {\n    \"id\": 3,\n    \"nome\": \"Verificar pragas\",\n    \"status\": \"Pendente\",\n    \"tipo\": \"inspeção\",\n    \"quantidadeTotal\": 1,\n    \"quantidadeCompletada\": 0,\n    \"ultimaAlteracao\": \"{{faker 'date.anytime'}}\",\n    \"cron\": \"0 9 */3 * *\",\n    \"habilidade_requerida\": {\n      \"nome\": \"Controle de pragas\",\n      \"multiplicador_xp\": 1.5\n    },\n    \"tutorial\": {{oneOf (dataRaw 'Tutoriais') (object)}}\n  },\n  {\n    \"id\": 4,\n    \"nome\": \"Plantar\",\n    \"status\": \"Pendente\",\n    \"tipo\": \"cultivo\",\n    \"quantidadeTotal\": 1,\n    \"quantidadeCompletada\": 0,\n    \"ultimaAlteracao\": \"{{faker 'date.anytime'}}\",\n    \"cron\": \"0 6 * * 2\",\n    \"habilidade_requerida\": {\n      \"nome\": \"Plantio estratégico\",\n      \"multiplicador_xp\": 1.4\n    },\n    \"tutorial\": {{oneOf (dataRaw 'Tutoriais') (object)}}\n  },\n  {\n    \"id\": 5,\n    \"nome\": \"Colher\",\n    \"status\": \"Pendente\",\n    \"tipo\": \"colheita\",\n    \"quantidadeTotal\": 1,\n    \"quantidadeCompletada\": 0,\n    \"ultimaAlteracao\": \"{{faker 'date.anytime'}}\",\n    \"cron\": \"0 10 * * 6\",\n    \"habilidade_requerida\": {\n      \"nome\": \"Colheita precisa\",\n      \"multiplicador_xp\": 1.2\n    },\n    \"tutorial\": {{oneOf (dataRaw 'Tutoriais') (object)}}\n  }\n]\n",
           "latency": 0,
           "statusCode": 200,
           "label": "",
