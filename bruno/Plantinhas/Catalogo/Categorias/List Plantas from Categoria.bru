@@ -1,0 +1,15 @@
+meta {
+  name: List Plantas from Categoria
+  type: http
+  seq: 1
+}
+
+get {
+  url: http://localhost:8002/categorias/1/plantas/
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUxMTU5OTY3LCJpYXQiOjE3NTExNTYzNjcsImp0aSI6IjdkYjgwMzQwNjNiMjQ4ZmRhZGM3ODlhNzFmNjExZTRmIiwidXNlcl9pZCI6MX0.mG4PdSQ877Do0WjQWkak8g9zvhhmfLDRaQ5ZVPXCkKy6LkemUdLEsDS6bSEHf8gpwxTVbUEfJV5mjyhqQEbxA7LC_nOch8ZFn5LHg609wd8p96tEOQDHy5lmDQsNjIm35yuawdsxKlFLEJRmOAMcVN6Zk6jo7OzwVLEhW1znbc9jBxDJWcmOdbMhvGKQH6WUBcm7Ns5wCkvIyNsEjNUSU9-9ZWo-f0Kqata0CGl4znsODAXR3SBL3X1UH2ygT0hqi972kc_-X7DXBH0Y6JmJLWEhF9pNkmaKZFkcBjRriGgYX9m5iC_JCdOtcR3PNHjMA0LkeHWSgINRmyGgSF-yAg
+}

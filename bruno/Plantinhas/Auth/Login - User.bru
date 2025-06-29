@@ -1,0 +1,18 @@
+meta {
+  name: Login - User
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://localhost:8001/auth/api/v1/login/
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "username": "marhaubrich",
+    "password": "123123"
+  }
+}

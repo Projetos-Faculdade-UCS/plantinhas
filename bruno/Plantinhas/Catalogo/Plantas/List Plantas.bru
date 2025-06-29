@@ -1,0 +1,15 @@
+meta {
+  name: List Plantas
+  type: http
+  seq: 2
+}
+
+get {
+  url: http://localhost:8002/plantas/
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~pagina: 1
+}

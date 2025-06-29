@@ -1,0 +1,17 @@
+meta {
+  name: Sugerir
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://localhost:8002/plantas/sugerir/
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "plantaSugerida": "Beringela Australiana"
+  }
+}
