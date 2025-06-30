@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "Plantinhas",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}
