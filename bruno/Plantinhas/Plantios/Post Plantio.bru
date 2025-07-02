@@ -1,0 +1,27 @@
+meta {
+  name: Post Plantio
+  type: http
+  seq: 3
+}
+
+post {
+  url: http://localhost:8004/plantios/
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUxNDI5NzY2LCJpYXQiOjE3NTE0MjYxNjYsImp0aSI6IjRlODZkZDdmZWY2MzRjYjRiZmM4ZGRkOTdlMDExMWQ1IiwidXNlcl9pZCI6MX0.iJUiqPdDWcEfh09yVrMNUn3XQYANTVZG7ZHFh1ge67Ne6nGknLTdcfZDfryQHbCDnQ3WvpdGxfiurfD7m5Qv4M7mt6d_Sj5Jj19U8QXwWRGPoD4cCFie7mEKayGmXd0oVTtG4wkzlYMTLazQfgghBTxfSHlYjZ29-FVd5ZCOO2_lXV_HH6q4HnOrLeayVxRxmuheUHvN3TkXFSpQSNcrOG6kINbldg5wXLoGvlJbh17RZ8alc08DRWCPNo8qYKrW1lPoRzFhYEnZ-RmdcNoyy3j1TAwogY4b0X6zU2QIS8owJ4E-5lps-C2NzkUCbXGzRvjt20ZmBP5YA8YMQz9f7A
+}
+
+body:json {
+  {
+      "planta_id": 1,
+      "data_plantio": "2025-07-01",
+      "data_colheita": "2025-10-01",
+      "saude": 0.3567,
+      "sede": 0.999,
+      "situacao": "Em crescimento",
+      "informacoes_adicionais": "Planta saudável, regada diariamente"
+  }
+}
