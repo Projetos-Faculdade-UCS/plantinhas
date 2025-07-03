@@ -1,0 +1,15 @@
+meta {
+  name: List Tarefas
+  type: http
+  seq: 1
+}
+
+get {
+  url: http://localhost:8005/tarefas/
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUxNTc5MDY0LCJpYXQiOjE3NTE1NzU0NjQsImp0aSI6ImJiNDNlZGYxNzdkODQ3YTBiMmQ2OGViYjQ1ZTk3ZDU1IiwidXNlcl9pZCI6MX0.VEpdRG-md8AXEF4cBUFwtroi4kqrPh2tqiv8nvHv-A3dN1YWY-yPid7ErKx7A5Yus8W4w55dqFPGAax2JJyJa2hYE0xQ2VX16FebE7xX6FwdSryrj1jItOJ-M3JavbAXc4rqWSzr14op-3OjTsAO0eUZ__eTly2LdBN5ZhR3Pisz6EkZGySlhA1jCBhl2msyHcifOSF81hkHz7-Yhg6QjWcCArgEqe9EiCW9lAfgBlEVW0P0xVH9umnsVhZOx4AR4gKECFrXhVyiSc31GlUxQIGOT9Uc9doWrCqi04yeUVQ2Wh4wxhIyWKhNBOJsLI92roOGyRYTo_fY-wCAdI6qkA
+}
