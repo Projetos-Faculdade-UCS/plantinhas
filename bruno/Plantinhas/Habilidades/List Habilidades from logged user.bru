@@ -1,0 +1,11 @@
+meta {
+  name: List Habilidades from logged user
+  type: http
+  seq: 1
+}
+
+get {
+  url: http://localhost:8003/habilidades/
+  body: none
+  auth: inherit
+}
