@@ -1,0 +1,18 @@
+meta {
+  name: Update Plantio
+  type: http
+  seq: 4
+}
+
+patch {
+  url: http://localhost:8004/plantios/1/
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "sede": 1,
+    "saude": 1
+  }
+}
